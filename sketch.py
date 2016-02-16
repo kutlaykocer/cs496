@@ -36,19 +36,20 @@ class Sketch:
 def performance_of_clear(sketch_size, loop):
     import time
     s=Sketch(sketch_size)
+    print("sketch size: %d"%sketch_size)
+    print("loop: %d"%loop)
     
     start = time.time()
     for i in range(loop):
         s.clear_matrix()
     end = time.time()
-    print(end - start)
+    print("clear_matrix time: %f" %(end - start))
 
     start = time.time()
     for i in range(loop):
-        #s.count_matrix(0,15)
         s.clear_matrix2()
     end = time.time()
-    print(end - start)
+    print("clear_matrix2 time: %f" %(end - start))
 
 def performance_of_init(sketch_size, loop):
     import time
@@ -69,21 +70,4 @@ class myThread(threading.Thread):
     def run(self):
         performance_of_init(16, 1)
 
-#performance measurement without threads
-"""
-start = time.time()
-performance_of_init(16, 1)
-performance_of_init(16, 1)
-end = time.time()
-print(end - start)
-"""
-
-#performance measurements with threads
-thread1 = myThread(1, "Thread-1", 1)
-thread2 = myThread(2, "Thread-2", 2)
-start = time.time()
-thread1.start()
-thread2.start()
-end = time.time()
-print ("time son: %f ---\n" %(end - start))
 
