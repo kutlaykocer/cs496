@@ -10,7 +10,7 @@ class Sketch:
     
     def __init__(self, size):
         self.rowSize = size
-        self.columnSize = int(math.pow(2,size))
+        self.columnSize = 2 ** size #more faster than pow and return int value
         self.matrix = [[0 for i in range(self.columnSize)] for j in range(self.rowSize)]
 
     def print_matrix(self):
