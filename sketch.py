@@ -32,7 +32,21 @@ class Sketch:
 
     def clear_matrix2(self):
         self.matrix = [[0 for i in range(self.columnSize)] for j in range(self.rowSize)]
+    def get_rowsize(self):
+        return self.rowSize
 
+    def get_columnsize(self):
+        return self.columnSize
+    def get(self,i,j):
+        return self.matrix[i][j]
+    def get_totalhit(self,i):
+        result=0
+        for j in range(self.columnSize):
+            result=result+self.matrix[i][j]
+        if result==0:
+            return 1
+        else:
+            return result
 def performance_of_clear(sketch_size, loop):
     import time
     s=Sketch(sketch_size)
